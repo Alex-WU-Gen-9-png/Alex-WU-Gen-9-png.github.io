@@ -6,7 +6,7 @@
   <link href="https://enormia0785.eu.org/atom.xml" rel="self"/>
   
   <link href="https://enormia0785.eu.org/"/>
-  <updated>2023-01-11T02:45:26.025Z</updated>
+  <updated>2023-01-11T13:15:09.545Z</updated>
   <id>https://enormia0785.eu.org/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://enormia0785.eu.org/2023/01/11/About%20Me%20and%20This%20Site/"/>
     <id>https://enormia0785.eu.org/2023/01/11/About%20Me%20and%20This%20Site/</id>
     <published>2023-01-11T02:02:08.000Z</published>
-    <updated>2023-01-11T02:45:26.025Z</updated>
+    <updated>2023-01-11T13:15:09.545Z</updated>
     
-    <content type="html"><![CDATA[<p>欢迎来到我的网站<br>Misaka Master 欢迎您！</p><p>在这里，我会写一些日常和科技类的文章，由于技术原因，这个站点做的并不完善，我相信日后会加入更多新的内容。</p><p>此站点基于Hexo与CloudFlare Pages搭建。<br>主站点：<a href="https://enormia0785.eu.org/">https://enormia0785.eu.org</a><br>备用站点: alex-wu-gen-9-png.github.io</p><p>以下感谢几位对我建站帮助比较大的巨佬<br>1 Ednovas <a href="https://ednovas.xyz/">https://ednovas.xyz</a><br>2 Hexo <a href="https://hexo.io/">https://hexo.io</a><br>3 Jerry <a href="https://butterfly.js.org/">https://butterfly.js.org</a><br>4 CodeSheep <a href="https://b23.tv/RByTBHo">https://b23.tv/RByTBHo</a><br>5 Nodejs <a href="https://nodejs.org/">https://nodejs.org</a></p><p>同时也推荐一位博主 电玩AK<br>他的B站账号 <a href="https://b23.tv/fgf96X4">https://b23.tv/fgf96X4</a><br>他的Youtube Channel <a href="https://www.youtube.com/@AkilaZhang">https://www.youtube.com/@AkilaZhang</a></p><p>接下来是关于我自己的联系方式<br>1 Telegram <a href="https://t.me/misaka_masters">https://t.me/misaka_masters</a><br>2 国内联系方式不透露</p><p>期待站点的未来</p>]]></content>
+    <content type="html"><![CDATA[<p>欢迎来到我的网站<br>Misaka Master 欢迎您！</p><p>在这里，我会写一些日常和科技类的文章，由于技术原因，这个站点做的并不完善，我相信日后会加入更多新的内容。</p><p>此站点基于Hexo与CloudFlare Pages搭建。<br>主站点：<a href="https://enormia0785.eu.org/">https://enormia0785.eu.org</a> (在我搭建起cdn前可能会有卡顿、无法访问等现象，请使用备用站点)<br>备用站点: alex-wu-gen-9-png.github.io</p><p>以下感谢几位对我建站帮助比较大的巨佬<br>1 Ednovas <a href="https://ednovas.xyz/">https://ednovas.xyz</a><br>2 Hexo <a href="https://hexo.io/">https://hexo.io</a><br>3 Jerry <a href="https://butterfly.js.org/">https://butterfly.js.org</a><br>4 CodeSheep <a href="https://b23.tv/RByTBHo">https://b23.tv/RByTBHo</a><br>5 Nodejs <a href="https://nodejs.org/">https://nodejs.org</a></p><p>同时也推荐一位博主 电玩AK<br>他的B站账号 <a href="https://b23.tv/fgf96X4">https://b23.tv/fgf96X4</a><br>他的Youtube Channel <a href="https://www.youtube.com/@AkilaZhang">https://www.youtube.com/@AkilaZhang</a></p><p>接下来是关于我自己的联系方式<br>1 Telegram <a href="https://t.me/misaka_masters">https://t.me/misaka_masters</a><br>2 小站邮箱  <a href="mailto:&#x61;&#100;&#109;&#105;&#x6e;&#x40;&#101;&#x6e;&#x6f;&#114;&#x6d;&#105;&#x61;&#x30;&#x37;&#56;&#53;&#x2e;&#101;&#x75;&#46;&#x6f;&#114;&#x67;">&#x61;&#100;&#109;&#105;&#x6e;&#x40;&#101;&#x6e;&#x6f;&#114;&#x6d;&#105;&#x61;&#x30;&#x37;&#56;&#53;&#x2e;&#101;&#x75;&#46;&#x6f;&#114;&#x67;</a></p><p>期待站点的未来</p>]]></content>
     
     
       
@@ -36,7 +36,7 @@
     
     
     
-    <category term="Interduction" scheme="https://enormia0785.eu.org/tags/Interduction/"/>
+    <category term="Introduction" scheme="https://enormia0785.eu.org/tags/Introduction/"/>
     
   </entry>
   
