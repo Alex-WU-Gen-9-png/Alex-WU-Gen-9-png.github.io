@@ -6,7 +6,7 @@
   <link href="https://enormia0785.eu.org/atom.xml" rel="self"/>
   
   <link href="https://enormia0785.eu.org/"/>
-  <updated>2023-01-12T04:29:43.878Z</updated>
+  <updated>2023-01-13T00:46:22.000Z</updated>
   <id>https://enormia0785.eu.org/</id>
   
   <author>
@@ -17,20 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用支付宝为外区Apple ID充值</title>
+    <link href="https://enormia0785.eu.org/2023/01/13/%E5%88%A9%E7%94%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E4%B8%BA%E5%A4%96%E5%8C%BAApple%20ID%E5%85%85%E5%80%BC/"/>
+    <id>https://enormia0785.eu.org/2023/01/13/%E5%88%A9%E7%94%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E4%B8%BA%E5%A4%96%E5%8C%BAApple%20ID%E5%85%85%E5%80%BC/</id>
+    <published>2023-01-13T01:41:25.163Z</published>
+    <updated>2023-01-13T00:46:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a><a href="https://zhuanlan.zhihu.com/p/591452334">教程</a></h1><h2 id="目前支持美区，其他地区可以自行探索。"><a href="#目前支持美区，其他地区可以自行探索。" class="headerlink" title="目前支持美区，其他地区可以自行探索。"></a>目前支持美区，其他地区可以自行探索。</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;教程&quot;&gt;&lt;a href=&quot;#教程&quot; class=&quot;headerlink&quot; title=&quot;教程&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/591452334&quot;&gt;教程&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;目前支持美区，其他地区可</summary>
+      
+    
+    
+    
+    
+    <category term="杂" scheme="https://enormia0785.eu.org/tags/%E6%9D%82/"/>
+    
+  </entry>
+  
+  <entry>
     <title>科学上网介绍&amp;教程</title>
-    <link href="https://enormia0785.eu.org/2023/01/12/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%8B%E7%BB%8D&amp;%E6%95%99%E7%A8%8B/"/>
-    <id>https://enormia0785.eu.org/2023/01/12/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%8B%E7%BB%8D&amp;%E6%95%99%E7%A8%8B/</id>
-    <published>2023-01-12T04:25:27.017Z</published>
-    <updated>2023-01-12T04:29:43.878Z</updated>
+    <link href="https://enormia0785.eu.org/2023/01/13/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%8B%E7%BB%8D&amp;%E6%95%99%E7%A8%8B%201/"/>
+    <id>https://enormia0785.eu.org/2023/01/13/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E4%BB%8B%E7%BB%8D&amp;%E6%95%99%E7%A8%8B%201/</id>
+    <published>2023-01-13T01:41:25.163Z</published>
+    <updated>2023-01-13T00:48:39.000Z</updated>
     
-    <content type="html"><![CDATA[<p>众所周知，由于GFW的设立，政府对于网络进行了限制和管控。<br>然而，就是有这么一群人，希望突破GFW的限制，创造性地开创了众多突破限制的方法</p><hr><h2 id="从理论的角度介绍突破限制的方法"><a href="#从理论的角度介绍突破限制的方法" class="headerlink" title="从理论的角度介绍突破限制的方法"></a>从理论的角度介绍突破限制的方法</h2><p>从理论上讲，我们首先要了解GFW是什么，他是怎么工作的。只有这样，我们才能发现其中的技术缺陷并加以利用，从而达到解除限制的目的。<br>这一部分大多是干货，而且涉及到很多网络方面的新知识，可能会很枯燥。如果不想看，完全可以跳过，并不影响我们的实战。不过，当你真的了解这个过程后，能够更好的理解。<br>推荐： Ednovas的文章 <a href="https://ednovas.xyz/2022/06/25/gfw/">https://ednovas.xyz/2022/06/25/gfw/</a><br>            电玩AK的视频<br>            （这就是很令人诟病的一点，如果你不能科学上网，是不能看到这个视频的）</p><hr><h2 id="从实战的角度突破限制"><a href="#从实战的角度突破限制" class="headerlink" title="从实战的角度突破限制"></a>从实战的角度突破限制</h2><p>在这里，我把实战分成几种方式</p><ul><li>利用VPN软件<br>这很好理解，通过创建一个VPN隧道，我们可以连接到一个新的网络环境，例如一个没有网络限制地区的网络环境。<br>市面上有很多VPN软件，但不是所有的都有用，也不是所有的都好用。由于VPN连接的安全性很低，很容易被GFW截获并破译，从而导致软件失效。<br>Ednovas帮我们列举了一些<a href="https://ednovas.xyz/2021/01/19/freevpn/">VPN</a><br>同时，我个人推荐<a href="https://1.1.1.1/">CloudFlare Warp</a> 请科学上网后访问。</li><li>利用自建节点<br>如果你看了上面的视频或文章，那么你应该知道了节点是什么。节点都是人建立起来的，如果你不自己建，就只能用他人建的。<br>鉴于自己动手，丰衣足食的道理，可以试一试自己建立节点（注意：自己建立节点需要一定的脑力和财力，同时一切维护都只能靠自己，但掌控权都在你手里。如果没有这样的耐心的，就直接跳过吧。一般来说，用同样的钱，还是购买他人建的节点更方便。但是向他人收费提供节点是违反刑法的，对方不一定可靠（主观上和客观上））<br>准备工作：一台VPS（最好是国外的，网络条件要尽量好，使用linux系统）<br>            一只动手能力强的手和一个理解能力强的大脑</li></ul><p>操作方法：<br>     1. <a href="https://www.lookforvps.com/vpstech/x-ui.html">部署X-ui环境</a><br>     2. 配置科学软件（见下）</p><ul><li>利用搜索引擎获取免费节点<br>由于互联网的便利，我们可以在网上查找节点，这种方法费时，节点也不稳定，但是不用花钱。<br>打开任何一个搜索引擎（建议使用 bing、 Google（doge）、 Yandex等国外搜索引擎），搜索V2Ray节点&#x2F;Clash节点，打开网页，复制其中长串的，以 ss:&#x2F;&#x2F;  vmess:&#x2F;&#x2F; Trojan:&#x2F;&#x2F; 等开头的链接<br>例如 <a href="https://www.iyio.net/">ioiy.net</a>  <a href="https://clashnode.com/">clashnode.com</a><br>又如各位巨佬建立的<a href="https://ednovas.xyz/2021/01/15/freeproxies/#Clash-Proxy-Provider%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%EF%BC%9A">节点池</a>（由Ednovas整理，许多已废站）<br>当然，你也可以造福人类，自己建立节点池，教程见 <a href="https://ednovas.xyz/2021/04/22/newproxypool/#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">https://ednovas.xyz/2021/04/22/newproxypool/#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94</a></li><li>自行购买<br>网上有很多机场，请明辨。<br>推荐 <a href="https://ednovas.org/#/register">Ednovas Cloud</a>  <a href="https://googo.us/#/register">GOOGO IEPL</a>  推广来自 <a href="https://shop.owo233.xyz/">清风阁</a></li></ul><hr><h2 id="科学软件的使用"><a href="#科学软件的使用" class="headerlink" title="科学软件的使用"></a>科学软件的使用</h2><ul><li><p>V2Ray系列（<a href="https://github.com/2dust/v2rayN/releases">V2RayN</a>  <a href="https://github.com/2dust/v2rayNG/releases?after=1.6.9">V2rayNG</a> ）<br>V2Ray由大佬2dust开发的科学软件，支持Vmess Vless Trojan Shadowsocks等协议。Windows端V2RayN， Android端 V2RayNG<br><a href="https://ednovas.xyz/2020/12/19/v2ray-windows/">使用方法(N)</a>   <a href="https://ednovas.xyz/2020/12/19/v2rayng/">使用方法(NG)</a></p></li><li><p>Clash系列（<a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash For WIndows</a> <a href="https://ednovas.xyz/2020/11/29/clash-android/">Clash For Android</a>)<br>Clash是由Fndroid大佬开发的科学软件，支持大部分主流协议，在网上找到提供的Clash节点池都有一键导入按钮，很方便。<br><a href="https://ednovas.xyz/2020/11/29/clash-windows/#%E8%AE%A2%E9%98%85%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2">使用方法(Windows)</a> <a href="https://ednovas.xyz/2020/11/29/clash-android/">使用方法(Android)</a> <a href="https://ednovas.xyz/2022/03/07/clashparsers/">补充</a></p></li><li><p>iOS端<br> iOS端由于App Store的锁区限制，大部分科学软件都无法下载，只剩下一些不安全的、圈钱跑路的无良VPN软件，因此，我们需要一个外区Apple账号（如美国区、香港区等）<br> 这些账号的注册很方便，可以<a href="https://zhuanlan.zhihu.com/p/347788674">自行查找</a><br> 也可以<a href="https://shop.owo233.com/">自行购买</a><br> 另外，文章中提到的科学软件需要花钱购买，价格在$2.99~ $6.99 之间</p><ol><li><a href="https://ednovas.xyz/2020/12/19/shadowrocket/">Shadowrocket（小火箭）</a></li><li><a href="https://linuxword.com/quantumult-x-%e8%bf%9b%e9%98%b6%e6%95%99%e7%a8%8b-%e6%87%92%e4%ba%ba%e9%a2%84%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e6%8c%87%e5%8d%97/?amp=1">QuantumultX</a></li></ol></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="问题存在和方法的出现"><a href="#问题存在和方法的出现" class="headerlink" title="问题存在和方法的出现"></a>问题存在和方法的出现</h1><p>众所周知，由于GFW的设立，政府对于网络进行了限制和管控。<br>然而，就是有这么一群人，希望突破GFW的限制，创造性地开创了众多突破限制的方法</p><hr><h2 id="从理论层面介绍突破限制的方法"><a href="#从理论层面介绍突破限制的方法" class="headerlink" title="从理论层面介绍突破限制的方法"></a>从理论层面介绍突破限制的方法</h2><p>从理论上讲，我们首先要了解GFW是什么，他是怎么工作的。只有这样，我们才能发现其中的技术缺陷并加以利用，从而达到解除限制的目的。<br>这一部分大多是干货，而且涉及到很多网络方面的新知识，可能会很枯燥。如果不想看，完全可以跳过，并不影响我们的实战。不过，当你真的了解这个过程后，能够更好的理解。<br>推荐： Ednovas的文章 <a href="https://ednovas.xyz/2022/06/25/gfw/">https://ednovas.xyz/2022/06/25/gfw/</a><br>            电丸科技AK的视频  <a href="https://youtube.com/watch?v=XKZM_AjCUr0&si=EnSIkaIECMiOmarE">https://youtube.com/watch?v=XKZM_AjCUr0&amp;si=EnSIkaIECMiOmarE</a><br>            （这就是很令人诟病的一点，如果你不能科学上网，是不能看到这个视频的）</p><hr><h2 id="从应用层突破限制"><a href="#从应用层突破限制" class="headerlink" title="从应用层突破限制"></a>从应用层突破限制</h2><p>在这里，我把实战应用分成几种方式</p><ul><li>利用VPN软件<br>这很好理解，通过创建一个VPN隧道，我们可以连接到一个新的网络环境，例如一个没有网络限制地区的网络环境。<br>市面上有很多VPN软件，但不是所有的都有用，也不是所有的都好用。由于VPN连接的安全性很低，很容易被GFW截获并破译，从而导致软件失效。<br>Ednovas帮我们列举了一些<a href="https://ednovas.xyz/2021/01/19/freevpn/">VPN</a><br>同时，我个人推荐<a href="https://1.1.1.1/">CloudFlare Warp</a> 请科学上网后访问。</li><li>利用自建节点<br>如果你看了上面的视频或文章，那么你应该知道了节点是什么。节点都是人建立起来的，如果你不自己建，就只能用他人建的。<br>鉴于自己动手，丰衣足食的道理，可以试一试自己建立节点（注意：自己建立节点需要一定的脑力和财力，同时一切维护都只能靠自己，但掌控权都在你手里。如果没有这样的耐心的，就直接跳过吧。一般来说，用同样的钱，还是购买他人建的节点更方便。但是向他人收费提供节点是违反刑法的，对方不一定可靠（主观上和客观上））<br>准备工作：一台VPS（最好是国外的，网络条件要尽量好，使用linux系统）<br>            一只动手能力强的手和一个理解能力强的大脑</li></ul><p>操作方法：<br>     1. <a href="https://www.lookforvps.com/vpstech/x-ui.html">部署X-ui环境</a><br>     2. 配置科学软件（见下）</p><ul><li>利用搜索引擎获取免费节点<br>由于互联网的便利，我们可以在网上查找节点，这种方法费时，节点也不稳定，但是不用花钱。<br>打开任何一个搜索引擎（建议使用 bing、 Google（doge）、 Yandex等国外搜索引擎），搜索V2Ray节点&#x2F;Clash节点，打开网页，复制其中长串的，以 ss:&#x2F;&#x2F;  vmess:&#x2F;&#x2F; Trojan:&#x2F;&#x2F; 等开头的链接<br>例如 <a href="https://www.iyio.net/">ioiy.net</a>  <a href="https://clashnode.com/">clashnode.com</a><br>又如各位巨佬建立的<a href="https://ednovas.xyz/2021/01/15/freeproxies/#Clash-Proxy-Provider%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%EF%BC%9A">节点池</a>（由Ednovas整理，许多已废站）<br>当然，你也可以造福人类，自己建立节点池，教程见 <a href="https://ednovas.xyz/2021/04/22/newproxypool/#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94">https://ednovas.xyz/2021/04/22/newproxypool/#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94</a></li><li>自行购买<br>网上有很多机场，请明辨。<br>推荐 <a href="https://ednovas.org/#/register">Ednovas Cloud</a>  <a href="https://googo.us/#/register">GOOGO IEPL</a>  推广来自 <a href="https://shop.owo233.xyz/">清风阁</a></li></ul><hr><h2 id="科学软件的使用"><a href="#科学软件的使用" class="headerlink" title="科学软件的使用"></a>科学软件的使用</h2><ul><li><p>V2Ray系列（<a href="https://github.com/2dust/v2rayN/releases">V2RayN</a>  <a href="https://github.com/2dust/v2rayNG/releases?after=1.6.9">V2rayNG</a> ）<br>V2Ray由大佬2dust开发的科学软件，支持Vmess Vless Trojan Shadowsocks等协议。Windows端V2RayN， Android端 V2RayNG<br><a href="https://ednovas.xyz/2020/12/19/v2ray-windows/">使用方法(N)</a>   <a href="https://ednovas.xyz/2020/12/19/v2rayng/">使用方法(NG)</a></p></li><li><p>Clash系列（<a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash For WIndows</a> <a href="https://ednovas.xyz/2020/11/29/clash-android/">Clash For Android</a>)<br>Clash是由Fndroid大佬开发的科学软件，支持大部分主流协议，在网上找到提供的Clash节点池都有一键导入按钮，很方便。<br><a href="https://ednovas.xyz/2020/11/29/clash-windows/#%E8%AE%A2%E9%98%85%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2">使用方法(Windows)</a> <a href="https://ednovas.xyz/2020/11/29/clash-android/">使用方法(Android)</a> <a href="https://ednovas.xyz/2022/03/07/clashparsers/">补充</a></p></li><li><p>iOS端<br> iOS端由于App Store的锁区限制，大部分科学软件都无法下载，只剩下一些不安全的、圈钱跑路的无良VPN软件，因此，我们需要一个外区Apple账号（如美国区、香港区等）<br> 这些账号的注册很方便，可以<a href="https://zhuanlan.zhihu.com/p/347788674">自行查找</a><br> 也可以<a href="https://shop.owo233.com/">自行购买</a><br> 另外，文章中提到的科学软件需要花钱购买，价格在$2.99~ $6.99 之间</p><ol><li><a href="https://ednovas.xyz/2020/12/19/shadowrocket/">Shadowrocket（小火箭）</a></li><li><a href="https://linuxword.com/quantumult-x-%e8%bf%9b%e9%98%b6%e6%95%99%e7%a8%8b-%e6%87%92%e4%ba%ba%e9%a2%84%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e6%8c%87%e5%8d%97/?amp=1">QuantumultX</a></li></ol></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;众所周知，由于GFW的设立，政府对于网络进行了限制和管控。&lt;br&gt;然而，就是有这么一群人，希望突破GFW的限制，创造性地开创了众多突破限制的方法&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;从理论的角度介绍突破限制的方法&quot;&gt;&lt;a href=&quot;#从理论的角度介绍突破限制的方法&quot; cla</summary>
+    <summary type="html">&lt;h1 id=&quot;问题存在和方法的出现&quot;&gt;&lt;a href=&quot;#问题存在和方法的出现&quot; class=&quot;headerlink&quot; title=&quot;问题存在和方法的出现&quot;&gt;&lt;/a&gt;问题存在和方法的出现&lt;/h1&gt;&lt;p&gt;众所周知，由于GFW的设立，政府对于网络进行了限制和管控。&lt;br&gt;然而，就是</summary>
+      
+    
+    
+    
+    
+    <category term="科学上网" scheme="https://enormia0785.eu.org/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Replit搭建V2Ray节点</title>
+    <link href="https://enormia0785.eu.org/2023/01/13/%E4%BD%BF%E7%94%A8Replit%E6%90%AD%E5%BB%BAV2Ray%E8%8A%82%E7%82%B9%201/"/>
+    <id>https://enormia0785.eu.org/2023/01/13/%E4%BD%BF%E7%94%A8Replit%E6%90%AD%E5%BB%BAV2Ray%E8%8A%82%E7%82%B9%201/</id>
+    <published>2023-01-13T01:41:25.081Z</published>
+    <updated>2023-01-13T00:40:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这个项目的出现"><a href="#这个项目的出现" class="headerlink" title="这个项目的出现"></a>这个项目的出现</h2><p>自从Heroku取消了免费服务后，通过Heroku搭建节点的教程对非付费用户也随之失效。为了寻找替代品，我们找到了Replit。</p><hr><h2 id="这个项目是什么？"><a href="#这个项目是什么？" class="headerlink" title="这个项目是什么？"></a>这个项目是什么？</h2><p><a href="https://docs.replit.com/">Replit简介</a><br>Replit是一个代码托管和运行的云平台，每一个注册用户都可以创建无限多个实例（被称为Repl）<br>由于每个用户都能分配到1C 512MRam 和 1G 的硬盘空间以及<strong>100G&#x2F;月</strong>的流量（这都是免费的），我们可以利用这一服务器来搭建节点</p><blockquote><p>Replit（<a href="https://repl.it/">https://repl.it</a>）是一个基于浏览器的云端协同开发平台，可用于构建开发环境、实时协作、托管网络应用等。Replit提供可创建动态或者静态网站的容器，并会自动生成免费https域名（格式为：项目名.用户名.repl.co）。这代表着任何人都可以试用Replit的云服务器创建自己的网站，或者是其他的服务，例如v2ray，而且这一切，都是免费的。&gt; </p></blockquote><hr><h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><ul><li>ss+V2Ray-Plugin （<a href="https://youtube.com/watch?v=ZsQ6NEZeei0&si=EnSIkaIECMiOmarE">视频教程</a> 请科学上网）<ol><li>注册一个Replit账户， <a href="https://repl.it/">https://repl.it</a> ，可以选用谷歌、苹果、Facebook、Github账号一键登录，也可以使用邮箱验证。 后续步骤看得懂可以自行选择，看不懂就跳过![[A22F27DC-F64B-4B81-B928-80EB36FCCD56.jpeg]]</li></ol></li></ul><ol start="2"><li>进入主页后，新窗口打开 <a href="https://replit.com/@wanghanzhe/V2RAY?v=1">https:&#x2F;&#x2F;replit.com&#x2F;@wanghanzhe&#x2F;V2RAY?v&#x3D;1</a>  备用地址： <a href="https://replit.com/@oracleservice/V2RAY">https:&#x2F;&#x2F;replit.com&#x2F;@oracleservice&#x2F;V2RAY</a>，点击右上角的<code>Use Template</code>，为项目取名后在点击一次<code>Use Template</code>页面会重定向到这个项目。![[B4472250-B56C-4055-B948-63EE619955A1.jpeg]]<br>![[1544A821-D9CF-4DDB-8BAD-02E3A070B6E7.jpeg]]</li><li>如果你了解这个代码的含义，可以自行修改。否则直接点上方的运行即可，很快在左侧的Files栏里，可以看到qr.png和url.txt，这代表了两种导入方式：扫描二维码和复制链接导入<br>PS：这种方式导入的节点需要V2Ray-Plugin插件，V2RayN可能不支持。</li></ol><ul><li>Vmess+tls+ws（<a href="https://youtube.com/watch?v=bF-7uaf1RWM&si=EnSIkaIECMiOmarE">搭建教程</a> 需要科学上网）<ol><li>第一步同上</li><li>打开 <a href="https://replit.com/@ygkkkk/xray-vmesswstls?v=1">https://replit.com/@ygkkkk/xray-vmesswstls?v=1</a> ，操作同上</li><li>运行后，右侧的console栏中会出现链接和qr code，截图即可。<br>PS：这位大佬@ygkkkk 还开发了很多类似的项目，可以自行挑选。</li></ol></li></ul><p>后续还可以进行IP优选（其实项目中已经包含）、负载均衡、CF反代等操作，可参考<a href="https://ednovas.xyz/2021/01/04/heroku/#%E4%BC%98%E9%80%89IP">Ednovas的文章</a></p><p>感谢大佬ygkkkk wy58047 wiw</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;这个项目的出现&quot;&gt;&lt;a href=&quot;#这个项目的出现&quot; class=&quot;headerlink&quot; title=&quot;这个项目的出现&quot;&gt;&lt;/a&gt;这个项目的出现&lt;/h2&gt;&lt;p&gt;自从Heroku取消了免费服务后，通过Heroku搭建节点的教程对非付费用户也随之失效。为了寻找替代</summary>
       
     
     
@@ -45,9 +87,9 @@
     <link href="https://enormia0785.eu.org/2023/01/11/About%20Me%20and%20This%20Site/"/>
     <id>https://enormia0785.eu.org/2023/01/11/About%20Me%20and%20This%20Site/</id>
     <published>2023-01-11T02:02:08.000Z</published>
-    <updated>2023-01-11T13:15:09.545Z</updated>
+    <updated>2023-01-13T01:52:12.682Z</updated>
     
-    <content type="html"><![CDATA[<p>欢迎来到我的网站<br>Misaka Master 欢迎您！</p><p>在这里，我会写一些日常和科技类的文章，由于技术原因，这个站点做的并不完善，我相信日后会加入更多新的内容。</p><p>此站点基于Hexo与CloudFlare Pages搭建。<br>主站点：<a href="https://enormia0785.eu.org/">https://enormia0785.eu.org</a> (在我搭建起cdn前可能会有卡顿、无法访问等现象，请使用备用站点)<br>备用站点: alex-wu-gen-9-png.github.io</p><p>以下感谢几位对我建站帮助比较大的巨佬<br>1 Ednovas <a href="https://ednovas.xyz/">https://ednovas.xyz</a><br>2 Hexo <a href="https://hexo.io/">https://hexo.io</a><br>3 Jerry <a href="https://butterfly.js.org/">https://butterfly.js.org</a><br>4 CodeSheep <a href="https://b23.tv/RByTBHo">https://b23.tv/RByTBHo</a><br>5 Nodejs <a href="https://nodejs.org/">https://nodejs.org</a></p><p>同时也推荐一位博主 电玩AK<br>他的B站账号 <a href="https://b23.tv/fgf96X4">https://b23.tv/fgf96X4</a><br>他的Youtube Channel <a href="https://www.youtube.com/@AkilaZhang">https://www.youtube.com/@AkilaZhang</a></p><p>接下来是关于我自己的联系方式<br>1 Telegram <a href="https://t.me/misaka_masters">https://t.me/misaka_masters</a><br>2 小站邮箱  <a href="mailto:&#x61;&#100;&#109;&#105;&#x6e;&#x40;&#101;&#x6e;&#x6f;&#114;&#x6d;&#105;&#x61;&#x30;&#x37;&#56;&#53;&#x2e;&#101;&#x75;&#46;&#x6f;&#114;&#x67;">&#x61;&#100;&#109;&#105;&#x6e;&#x40;&#101;&#x6e;&#x6f;&#114;&#x6d;&#105;&#x61;&#x30;&#x37;&#56;&#53;&#x2e;&#101;&#x75;&#46;&#x6f;&#114;&#x67;</a></p><p>期待站点的未来</p>]]></content>
+    <content type="html"><![CDATA[<p>欢迎来到我的网站<br>Misaka Master 欢迎您！</p><p>在这里，我会写一些日常和科技类的文章，由于技术原因，这个站点做的并不完善，我相信日后会加入更多新的内容。</p><p>此站点基于Hexo与CloudFlare Pages搭建。<br>主站点：<a href="https://enormia0785.eu.org/">https://enormia0785.eu.org</a> (在我搭建起cdn前可能会有卡顿、无法访问等现象，请使用备用站点)<br>备用站点: alex-wu-gen-9-png.github.io</p><p>以下感谢几位对我建站帮助比较大的巨佬<br>1 Ednovas <a href="https://ednovas.xyz/">https://ednovas.xyz</a><br>2 Hexo <a href="https://hexo.io/">https://hexo.io</a><br>3 Jerry <a href="https://butterfly.js.org/">https://butterfly.js.org</a><br>4 CodeSheep <a href="https://b23.tv/RByTBHo">https://b23.tv/RByTBHo</a><br>5 Nodejs <a href="https://nodejs.org/">https://nodejs.org</a></p><p>同时也推荐一位博主 电丸科技AK<br>他的B站账号 <a href="https://b23.tv/fgf96X4">https://b23.tv/fgf96X4</a><br>他的Youtube Channel <a href="https://www.youtube.com/@AkilaZhang">https://www.youtube.com/@AkilaZhang</a></p><p>接下来是关于我自己的联系方式<br>1 Telegram <a href="https://t.me/misaka_masters">https://t.me/misaka_masters</a><br>2 小站邮箱  <a href="mailto:&#x61;&#x64;&#109;&#105;&#110;&#x40;&#x65;&#x6e;&#111;&#x72;&#109;&#x69;&#x61;&#48;&#55;&#56;&#53;&#x2e;&#101;&#x75;&#46;&#x6f;&#114;&#x67;">&#x61;&#x64;&#109;&#105;&#110;&#x40;&#x65;&#x6e;&#111;&#x72;&#109;&#x69;&#x61;&#48;&#55;&#56;&#53;&#x2e;&#101;&#x75;&#46;&#x6f;&#114;&#x67;</a></p><p>期待站点的未来</p>]]></content>
     
     
       
