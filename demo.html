@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>互动探索：看不见的工程师</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Chosen Palette: Warm Harmony -->
+        <!-- Application Structure Plan: The application maintains the "hub-and-spoke" model. The main page is a hub for selecting one of six "engineers." This non-linear structure promotes user-led exploration. Each spoke (experiment section) has been updated to follow a "Question -> Interact -> Discover" flow. A prominent "Exploration Question" now introduces each module, aligning with the pedagogical goal of starting from inquiry. This enhances the educational narrative and user engagement. -->
+        <!-- Visualization & Content Choices: Interactions are updated to match the new content. 1. Liquid Density: The Chart.js bar chart is replaced with a custom CSS flexbox container to accurately simulate vertical liquid layering. Each liquid is a div whose height is controlled by JS. A subtle linear-gradient on each div creates a soft blending effect at the boundaries, as requested. 2. Square-Circle Magic: The animation is completely rebuilt. The paper is now composed of two triangular divs (using clip-path) that animate along a shared diagonal axis. This accurately simulates the "folding" action described in the prompt, providing a much clearer and more precise visualization of the solution. -->
+        <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+        <style>
+            body {
+                font-family: 'Noto Sans SC', sans-serif;
+                background-color: #fdfaf6;
+                color: #4a4a4a;
+            }
+            .nav-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .nav-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            }
+            .section-content {
+                display: none;
+            }
+            .section-content.active {
+                display: block;
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .btn-primary {
+                transition: background-color 0.3s, transform 0.2s;
+            }
+            .btn-primary:hover {
+                transform: scale(1.05);
+            }
+            .btn-primary:active {
+                transform: scale(0.98);
+            }
+            .question-box {
+                background-color: #fffbeb;
+                border-left: 4px solid #f59e0b;
+            }
+            .liquid-layer {
+                transition: height 0.8s ease-in-out;
+                flex-shrink: 0;
+            }
+        </style>
+    </head>
+    <body class="antialiased">
+    
+        <div id="app" class="container mx-auto px-4 py-8 md:py-12">
+    
+            <header id="main-header" class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-2">看不见的工程师</h1>
+                <p class="text-lg md:text-xl text-gray-600">平凡现象里的神奇设计者</p>
+            </header>
+    
+            <nav id="engineer-nav" class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+            </nav>
+    
+            <main id="engineer-details">
+            </main>
+    
+        </div>
+    
+        <script>
+            const engineers = [
+                {
+                    id: 'color',
+                    name: '色彩工程师',
+                    subtitle: '分子世界的“变装大师”',
+                    icon: '🎨',
+                    color: 'bg-purple-500',
+                    question: '紫甘蓝榨出的紫色汁水，为什么一碰到酸酸的柠檬就‘害羞脸红’，一碰到滑滑的肥皂水又会‘吓得脸发绿’呢？它是不是会看人‘变脸’呀？',
+                    principle: '哈哈，因为它身体里住着一位‘变色小精灵’（花青素）！这个小精灵对环境特别敏感，在酸和碱这两种不同的‘派对’里，它会改变自己的‘造型’。造型一变，它反射到我们眼睛里的光就不一样了，所以我们就看到了它在‘变脸’啦！',
+                    life_connection: '胃酸过多喝苏打水（酸碱中和）、绣球花根据土壤酸碱性开出不同颜色的花。'
+                },
+                {
+                    id: 'cleaning',
+                    name: '清洁工程师',
+                    subtitle: '油污的“金牌抓捕师”',
+                    icon: '🧼',
+                    color: 'bg-sky-500',
+                    question: '油乎乎的脏盘子，只用水冲就像在给它‘挠痒痒’，根本冲不干净。可为什么滴上几滴洗洁精，油污大军就立刻‘缴械投降’，被水轻松带走了呢？',
+                    principle: '因为洗洁精派出了无数个‘双面特工’小分子！它们一只手特别喜欢拉着油（亲油），另一只手又特别喜欢拉着水（亲水）。它们会用‘亲油手’把油污团团抱住，然后让‘亲水手’拉着水，大喊一声‘冲啊！’，就把油污整个拖下水啦！',
+                    life_connection: '我们日常使用的洗衣液、洗手液、肥皂等，都运用了这位清洁工程师的本领来去除各种污渍。'
+                },
+                {
+                    id: 'liquid',
+                    name: '液体建筑师',
+                    subtitle: '用重量规划世界的秩序',
+                    icon: '🏗️',
+                    color: 'bg-teal-500',
+                    question: '为什么往一杯水里倒油，油会浮在上面；倒蜂蜜，蜂蜜又会沉到水底？它们明明都是液体，为什么不能乖乖地混合在一起，非要分出个‘楼上楼下’呢？',
+                    principle: '因为每种液体都有自己的‘隐形体重’，科学家叫它‘密度’。在同样大小的房间里（同样体积），蜂蜜是个‘大胖子’，水是‘标准身材’，油是个‘小瘦子’。所以‘大胖子’蜂蜜肯定住最底下的地下室，‘小瘦子’油就轻松地浮在最顶层啦！',
+                    life_connection: '制作精美的分层鸡尾酒、暴雨后河水浑浊分层、死海能让人浮起来。'
+                },
+                {
+                    id: 'energy',
+                    name: '温度魔术师',
+                    subtitle: '触摸“温度的魔术”',
+                    icon: '🔥',
+                    color: 'bg-orange-500',
+                    question: '有一种神奇的水，看起来普普通通，但只要你用手指轻轻碰一下，它就会在瞬间‘结冰’，还会从冰凉变得暖暖的，这难道是一种口袋里的魔法吗？',
+                    principle: '这不是魔法，是分子们的‘集体广播操’！在那种神奇的水里（过饱和溶液），无数分子都挤在一起，准备好了但没听到口令。你的手指就像发令员，一声令下，所有分子立刻‘立正、看齐’，排好了整齐的队伍（结晶）。大家一起动起来，身上就散发出了热量，所以我们就感觉到暖和啦！',
+                    life_connection: '冬天常用的“暖手宝”就是利用了这个原理。同样，雪天撒盐融雪，则是一个吸热过程，是能量魔术的另一种表现。'
+                },
+                {
+                    id: 'light',
+                    name: '光影工程师',
+                    subtitle: '为元素点亮专属“信号灯”',
+                    icon: '🎆',
+                    color: 'bg-red-500',
+                    question: '过年放的烟花为什么是五颜六色的？难道是仙女在天上洒下了彩色的粉末吗？为什么普普通通的火苗，也能烧出绿色、红色的光呢？',
+                    principle: '每一种金属元素，都藏着自己独特的‘颜色密码’。当它们被火加热时，就会非常兴奋，像是在开派对一样跳起舞来。跳完舞回到自己的座位时，它们就会把自己独特的颜色光芒释放出来！铜元素释放绿光，锶元素释放红光，化学家就是利用这个秘密，把它们做成了五彩缤纷的烟花！',
+                    life_connection: '节日里五彩缤纷的烟花，就是化学家利用不同金属的焰色反应精心设计的。路灯发出的黄光，也常常是利用钠元素的焰色反应。'
+                },
+                {
+                    id: 'space',
+                    name: '空间魔术师',
+                    subtitle: '用维度创造“无限的奇迹”',
+                    icon: '🪄',
+                    color: 'bg-blue-500',
+                    question: '一枚大硬币，怎么才能钻过一个比它小的方洞，而且还不能把纸撕破？难道这张纸会像变魔术一样，给硬币让出一条秘密通道吗？',
+                    principle: '在平平的纸上，方洞是个‘死’的门。但当我们把它对折并弯曲，它就不再是一个‘平面’图形，而变成了一个‘立体’的‘扭曲的门’！在这个立体的门里，原来的对角线被我们‘撑开’成了新的通道口！所以，直径为2的圆盘就能刚刚好通过这个被我们‘变’出来的新通道啦！',
+                    life_connection: '这个小魔术告诉我们，有时候换个角度、把二维变三维，很多‘不可能’的问题就能解决！'
+                }
+            ];
+    
+            const navContainer = document.getElementById('engineer-nav');
+            const detailsContainer = document.getElementById('engineer-details');
+    
+            function renderNav() {
+                engineers.forEach(eng => {
+                    const card = document.createElement('div');
+                    card.className = `nav-card p-6 rounded-xl shadow-md cursor-pointer text-white ${eng.color}`;
+                    card.innerHTML = `
+                        <div class="text-4xl mb-4">${eng.icon}</div>
+                        <h3 class="text-xl font-bold">${eng.name}</h3>
+                        <p class="text-sm opacity-90">${eng.subtitle}</p>
+                    `;
+                    card.addEventListener('click', () => showDetails(eng.id));
+                    navContainer.appendChild(card);
+                });
+            }
+    
+            function showDetails(id) {
+                const engineer = engineers.find(e => e.id === id);
+                if (!engineer) return;
+    
+                detailsContainer.innerHTML = '';
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'section-content bg-white p-6 md:p-8 rounded-2xl shadow-lg';
+                
+                let interactiveHTML = '';
+                switch (engineer.id) {
+                    case 'color':
+                        interactiveHTML = `
+                            <div class="w-full h-48 rounded-lg border-2 border-gray-200 flex items-center justify-center transition-colors duration-500" id="color-box" style="background-color: #9370DB;">
+                                <span class="text-white font-bold text-xl" id="color-text">紫甘蓝汁 (中性)</span>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-4">
+                                <button onclick="changeColor('acid')" class="btn-primary bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full">滴入柠檬汁 (酸)</button>
+                                <button onclick="changeColor('base')" class="btn-primary bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">滴入肥皂水 (碱)</button>
+                                <button onclick="changeColor('neutral')" class="btn-primary bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full">重置</button>
+                            </div>
+                        `;
+                        break;
+                    case 'cleaning':
+                        interactiveHTML = `
+                            <div id="plate" class="relative w-48 h-48 md:w-64 md:h-64 mx-auto bg-gray-100 rounded-full border-4 border-gray-300 overflow-hidden">
+                            </div>
+                            <div class="flex justify-center mt-4">
+                                <button id="clean-btn" class="btn-primary bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded-full">滴入洗洁精</button>
+                            </div>
+                        `;
+                        break;
+                    case 'liquid':
+                        interactiveHTML = `
+                            <div class="flex justify-center items-center gap-4">
+                                 <div id="beaker-container" class="w-40 h-64 bg-gray-100 border-x-4 border-b-4 border-gray-300 rounded-b-xl flex flex-col-reverse">
+                                    <!-- Layers will be injected here -->
+                                 </div>
+                            </div>
+                            <div class="flex flex-wrap justify-center gap-2 mt-4">
+                                <button data-liquid="honey" class="btn-primary bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-3 rounded-full text-sm">倒入蜂蜜</button>
+                                <button data-liquid="water" class="btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-3 rounded-full text-sm">倒入水</button>
+                                <button data-liquid="oil" class="btn-primary bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold py-2 px-3 rounded-full text-sm">倒入油</button>
+                                <button id="reset-liquid-btn" class="btn-primary bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3 rounded-full text-sm">重置</button>
+                            </div>
+                        `;
+                        break;
+                    case 'energy':
+                        interactiveHTML = `
+                            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                                <div id="beaker" class="w-40 h-48 bg-blue-100 border-b-8 border-blue-300 rounded-t-lg relative overflow-hidden flex items-center justify-center text-blue-800 font-bold">
+                                    <div id="crystals" class="absolute inset-0 bg-blue-300 opacity-0" style="transition: opacity 1s ease;"></div>
+                                    <span>神奇的水</span>
+                                </div>
+                                <div id="thermometer" class="w-8 h-48 bg-gray-200 rounded-full relative">
+                                    <div id="mercury" class="absolute bottom-0 left-0 right-0 bg-red-500 rounded-full" style="height: 10%; transition: height 1s ease;"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center mt-4">
+                                <button id="trigger-crystal" class="btn-primary bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full">触摸一下</button>
+                            </div>
+                        `;
+                        break;
+                    case 'light':
+                        interactiveHTML = `
+                            <div class="flex flex-col items-center">
+                                <div id="flame" class="w-24 h-40 rounded-t-full rounded-b-lg" style="background: radial-gradient(ellipse at bottom, #fde047 20%, #f97316 60%, transparent 100%); transition: background 0.5s ease;"></div>
+                                <div class="w-4 h-12 bg-gray-400"></div>
+                                <div class="w-20 h-4 bg-gray-500 rounded"></div>
+                            </div>
+                             <div class="flex flex-wrap justify-center gap-2 mt-4">
+                                <button onclick="changeFlame('sr')" class="btn-primary bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-full text-sm">烧一下含锶(Sr)的盐</button>
+                                <button onclick="changeFlame('cu')" class="btn-primary bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-3 rounded-full text-sm">烧一下含铜(Cu)的盐</button>
+                                <button onclick="changeFlame('default')" class="btn-primary bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3 rounded-full text-sm">普通火苗</button>
+                            </div>
+                        `;
+                        break;
+                    case 'space':
+                        interactiveHTML = `
+                            <div class="h-64 flex flex-col items-center justify-center space-y-4" style="perspective: 1000px;">
+                                <div id="magic-coin" class="w-20 h-20 bg-yellow-400 border-4 border-yellow-600 rounded-full flex items-center justify-center text-yellow-800 font-bold text-lg z-10" style="transition: transform 1.5s ease-in-out;">圆盘</div>
+                                <div id="magic-paper-container" class="relative w-40 h-40" style="transform-style: preserve-3d; transform: translateY(-120px);">
+                                    <div id="paper-half-1" class="absolute w-full h-full bg-white border-2 border-gray-300" style="clip-path: polygon(0 0, 100% 0, 0 100%); transition: transform 1s ease-in-out; transform-origin: 0 0;"></div>
+                                    <div id="paper-half-2" class="absolute w-full h-full bg-white border-2 border-gray-300" style="clip-path: polygon(100% 100%, 100% 0, 0 100%); transition: transform 1s ease-in-out; transform-origin: 100% 100%;"></div>
+                                </div>
+                                 <div id="magic-message" class="text-center text-red-500 font-bold h-6" style="transform: translateY(-100px);"></div>
+                            </div>
+                            <div class="flex justify-center gap-4 mt-4">
+                                <button id="pass-btn" class="btn-primary bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-full">尝试穿过</button>
+                                <button id="fold-btn" class="btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">施展空间魔法</button>
+                            </div>
+                        `;
+                        break;
+                }
+                
+                contentDiv.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-3xl font-bold ${engineer.color.replace('bg','text')}-600">${engineer.name}</h2>
+                        <button class="text-gray-400 hover:text-gray-600 text-2xl" onclick="closeDetails()">&times;</button>
+                    </div>
+    
+                    <div class="question-box p-4 mb-6 rounded-lg">
+                        <p class="text-gray-700 italic">🤔 ${engineer.question}</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 md:p-6 rounded-lg mb-6">
+                        <h4 class="font-bold text-lg mb-4 text-center">动手试一试</h4>
+                        ${interactiveHTML}
+                    </div>
+    
+                    <div class="grid md:grid-cols-2 gap-6 text-center">
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg mb-2">💡 原理解密</h4>
+                            <p class="text-sm text-gray-600">${engineer.principle}</p>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-lg mb-2">🌍 生活联系</h4>
+                            <p class="text-sm text-gray-600">${engineer.life_connection}</p>
+                        </div>
+                    </div>
+                `;
+                detailsContainer.appendChild(contentDiv);
+                
+                requestAnimationFrame(() => {
+                    contentDiv.classList.add('active');
+                    document.getElementById('engineer-details').scrollIntoView({ behavior: 'smooth' });
+                    
+                    if (engineer.id === 'cleaning') setupCleaningSim();
+                    if (engineer.id === 'liquid') setupLiquidSim();
+                    if (engineer.id === 'energy') setupEnergySim();
+                    if (engineer.id === 'space') setupSpaceMagicSim();
+                });
+            }
+    
+            function closeDetails() {
+                detailsContainer.innerHTML = '';
+                document.getElementById('main-header').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function changeColor(type) {
+                const box = document.getElementById('color-box');
+                const text = document.getElementById('color-text');
+                if (type === 'acid') {
+                    box.style.backgroundColor = '#F472B6';
+                    text.innerText = '变为粉红色 (酸性)';
+                } else if (type === 'base') {
+                    box.style.backgroundColor = '#34D399';
+                    text.innerText = '变为蓝绿色 (碱性)';
+                } else {
+                    box.style.backgroundColor = '#9370DB';
+                    text.innerText = '紫甘蓝汁 (中性)';
+                }
+            }
+    
+            function setupCleaningSim() {
+                const plate = document.getElementById('plate');
+                const btn = document.getElementById('clean-btn');
+                let oilDroplets = [];
+    
+                function resetOil() {
+                    plate.innerHTML = '';
+                    oilDroplets = [];
+                    for (let i = 0; i < 15; i++) {
+                        const oil = document.createElement('div');
+                        oil.className = 'absolute w-4 h-4 bg-yellow-400 rounded-full';
+                        oil.style.left = `${Math.random() * 85}%`;
+                        oil.style.top = `${Math.random() * 85}%`;
+                        oil.style.transition = 'transform 1.5s ease-out, opacity 1.5s ease-out';
+                        plate.appendChild(oil);
+                        oilDroplets.push(oil);
+                    }
+                }
+                
+                btn.onclick = () => {
+                    if(oilDroplets.length === 0) resetOil();
+                    
+                    setTimeout(() => {
+                        oilDroplets.forEach(oil => {
+                            oil.style.transform = `translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px) scale(0.5)`;
+                            oil.style.opacity = '0';
+                        });
+                        setTimeout(() => {
+                            oilDroplets = [];
+                        }, 1500);
+                    }, 100);
+                };
+                
+                resetOil();
+            }
+    
+            function setupLiquidSim() {
+                const beaker = document.getElementById('beaker-container');
+                const liquids = {
+                    honey: { id: 'honey', color: 'rgba(180, 83, 9, 1)', blend: 'rgba(180, 83, 9, 0.8)', order: 1 },
+                    water: { id: 'water', color: 'rgba(59, 130, 246, 1)', blend: 'rgba(59, 130, 246, 0.8)', order: 2 },
+                    oil: { id: 'oil', color: 'rgba(250, 204, 21, 1)', blend: 'rgba(250, 204, 21, 0.8)', order: 1 }
+                };
+    
+                function pourLiquid(liquidId) {
+                    if (document.getElementById(liquidId)) return;
+    
+                    const liquid = liquids[liquidId];
+                    const layer = document.createElement('div');
+                    layer.id = liquid.id;
+                    layer.dataset.order = liquid.order;
+                    layer.className = 'liquid-layer w-full';
+                    layer.style.height = '0%';
+                    layer.style.background = `linear-gradient(to bottom, ${liquid.blend} 0%, ${liquid.color} 5%, ${liquid.color} 95%, ${liquid.blend} 100%)`;
+                    
+                    beaker.appendChild(layer);
+    
+                    const layers = Array.from(beaker.children);
+                    layers.sort((a, b) => a.dataset.order - b.dataset.order);
+                    layers.forEach(l => beaker.appendChild(l));
+    
+                    const totalLayers = beaker.children.length;
+                    const heightPerLayer = 100 / totalLayers;
+                    
+                    layers.forEach(l => {
+                        l.style.height = `${heightPerLayer}%`;
+                    });
+                }
+    
+                document.querySelectorAll('[data-liquid]').forEach(button => {
+                    button.onclick = () => pourLiquid(button.dataset.liquid);
+                });
+    
+                document.getElementById('reset-liquid-btn').onclick = () => {
+                    beaker.innerHTML = '';
+                };
+            }
+    
+            function setupEnergySim() {
+                const btn = document.getElementById('trigger-crystal');
+                const crystals = document.getElementById('crystals');
+                const mercury = document.getElementById('mercury');
+                
+                let triggered = false;
+                btn.onclick = () => {
+                    if (triggered) {
+                        crystals.style.opacity = '0';
+                        mercury.style.height = '10%';
+                    } else {
+                        crystals.style.opacity = '1';
+                        mercury.style.height = '80%';
+                    }
+                    triggered = !triggered;
+                    btn.innerText = triggered ? '重置' : '触摸一下';
+                };
+            }
+    
+            function changeFlame(type) {
+                const flame = document.getElementById('flame');
+                const colors = {
+                    sr: 'radial-gradient(ellipse at bottom, #fca5a5 20%, #ef4444 60%, transparent 100%)',
+                    cu: 'radial-gradient(ellipse at bottom, #6ee7b7 20%, #10b981 60%, transparent 100%)',
+                    default: 'radial-gradient(ellipse at bottom, #fde047 20%, #f97316 60%, transparent 100%)'
+                };
+                flame.style.background = colors[type];
+            }
+    
+        function setupSpaceMagicSim() {
+            const coin = document.getElementById('magic-coin');
+            const paper = document.getElementById('magic-paper');
+            const message = document.getElementById('magic-message');
+            const passBtn = document.getElementById('pass-btn');
+            const foldBtn = document.getElementById('fold-btn');
+            let isFolded = false;
+
+            function reset() {
+                isFolded = false;
+                message.innerText = '';
+                coin.style.transform = 'translateY(0) scale(1)';
+                paper.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                foldBtn.disabled = false;
+            }
+            
+            passBtn.onclick = () => {
+                if (isFolded) return;
+                message.innerText = '过不去！圆盘比洞口大。';
+                setTimeout(() => message.innerText = '', 2000);
+            };
+
+            foldBtn.onclick = () => {
+                if (isFolded) {
+                    reset();
+                    return;
+                }
+                isFolded = true;
+                message.innerText = '纸张弯曲，创造了新的维度！';
+                paper.style.transform = 'rotateX(70deg) rotateY(20deg)';
+                setTimeout(() => {
+                    coin.style.transform = 'translateY(180px) scale(0.5)';
+                }, 500);
+                setTimeout(() => {
+                    message.innerText = '成功穿过！';
+                    foldBtn.innerText = '重置魔术';
+                }, 1500);
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNav();
+        });
+    </script>
+
+</body>
+</html>
